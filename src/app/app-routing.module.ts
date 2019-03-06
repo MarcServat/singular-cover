@@ -1,8 +1,6 @@
-import {Container} from 'container/container.component';
+import { ContainerComponent } from './container/container.component';
+import { Routes } from '@angular/router';
 
-const routes: Routes = [
-  { path: '', pathMatch: Container },
-  // { path: 'dashboard', component: DashboardComponent },
-  // { path: 'detail/:id', component: HeroDetailComponent },
-  // { path: 'heroes', component: HeroesComponent }
+export const routes: Routes = [
+  { path: '', component: ContainerComponent }
 ];
