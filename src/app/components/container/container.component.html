@@ -1,0 +1,27 @@
+<p-dataView #dv [value]="insuranceList" filterBy="brand" [paginator]="true" [rows]="10" [loading]="loading">
+  <p-header>
+    <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By"
+                (onChange)="onSortChange($event)" [style]="{'min-width':'15em'}">
+    </p-dropdown>
+    <input type="search" pInputText placeholder="Search by brand" (keyup)="dv.filter($event.target.value)">
+  </p-header>
+  <ng-template let-insurance pTemplate="listItem">
+    <div class="ui-g ng-star-inserted" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
+      <div class="ui-g-12 ui-md-3">
+        <img class="image" [src]="insurance.getBrandImage()" alt="brand"/>
+      </div>
+      <div class="ui-g-12 ui-md-8 car-details">
+          <span class="ui-g-12 ui-md-2 title"> id: </span>
+          <span class="ui-g-12 ui-md-10">{{insurance.getId()}}</span>
+          <span class="ui-g-12 ui-md-2 title"> name: </span>
+          <span class="ui-g-12 ui-md-10">{{insurance.getName()}}</span>
+          <span class="ui-g-12 ui-md-2 title"> kind: </span>
+          <span class="ui-g-12 ui-md-10">{{insurance.getKind()}}
+            <img [src]="insurance.getKindImage()" height="20" alt="brand"/>
+          </span>
+          <span class="ui-g-12 ui-md-2 title"> price: </span>
+          <span class="ui-g-12 ui-md-10">{{insurance.getPrice()}}</span>
+      </div>
+    </div>
+  </ng-template>
+</p-dataView>
