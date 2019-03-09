@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import { Insurance } from '../typing/insurance';
 
 @Injectable({
   providedIn: 'root'
@@ -15,15 +14,7 @@ export class InsuranceModel {
 
   private imagePath = '/src/assets/images/';
 
-  constructor(insurance: Insurance) {
-    this.id = insurance.id;
-    this.name = insurance.name;
-    this.brand = insurance.brand;
-    this.brandImage = insurance['brand-image'];
-    this.kind = insurance.kind;
-    this.kindImage = insurance['Kind-image'];
-    this.price = insurance.price;
-  }
+  constructor() {}
 
   getId() {
     return this.id;

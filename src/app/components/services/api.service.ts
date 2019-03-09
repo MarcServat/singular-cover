@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import {Insurance} from '../../typing/insurance';
+import { Insurance } from '../../typing/insurance';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,6 @@ export class ApiService {
   ) {}
 
   getData() {
-    return this._http.get<Insurance[]>(this._environment.apiDomain);
+    return this._http.get(this._environment.apiDomain);
   }
-
 }

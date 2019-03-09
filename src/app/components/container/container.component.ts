@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { LinkService } from '../services/link.service';
 import { ApiService } from '../services/api.service';
-import { InsuranceModel } from '../../models/insurance.model';
 import { SelectItem } from 'primeng/api';
+import {Insurance} from '../../typing/insurance';
 
 @Component({
   selector: 'app-container',
@@ -11,14 +12,14 @@ import { SelectItem } from 'primeng/api';
 export class ContainerComponent implements OnInit {
 
   insuranceList = [];
-  loading = true;
   sortOptions: SelectItem[];
   sortKey: string;
   sortField: string;
   sortOrder: number;
 
   constructor(
-    private api: ApiService
+    private api: ApiService,
+    private link: LinkService
   ) { }
 
   ngOnInit() {
@@ -29,12 +30,8 @@ export class ContainerComponent implements OnInit {
     ];
 
     this.api.getData().subscribe(
-      res => {
-        this.insuranceList = res.map(insurance => new InsuranceModel(insurance));
-        this.loading = false;
-        },
-      err => { console.error(err); }
-    );
+      res => this.insuranceList = res.map(i => this.link.initializeDataInsurance(i)),
+      err => console.error(err));
   }
 
   onSortChange(event) {

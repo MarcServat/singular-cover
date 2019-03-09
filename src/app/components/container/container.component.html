@@ -11,16 +11,16 @@
         <img class="image" [src]="insurance.getBrandImage()" alt="brand"/>
       </div>
       <div class="ui-g-12 ui-md-8 car-details">
-          <span class="ui-g-12 ui-md-2 title"> id: </span>
-          <span class="ui-g-12 ui-md-10">{{insurance.getId()}}</span>
-          <span class="ui-g-12 ui-md-2 title"> name: </span>
-          <span class="ui-g-12 ui-md-10">{{insurance.getName()}}</span>
-          <span class="ui-g-12 ui-md-2 title"> kind: </span>
-          <span class="ui-g-12 ui-md-10">{{insurance.getKind()}}
-            <img [src]="insurance.getKindImage()" height="20" alt="brand"/>
-          </span>
-          <span class="ui-g-12 ui-md-2 title"> price: </span>
-          <span class="ui-g-12 ui-md-10">{{insurance.getPrice()}}</span>
+        <span class="ui-g-12 ui-md-2 title"> id: </span>
+        <span class="ui-g-12 ui-md-10">{{insurance.getId()}}</span>
+        <span class="ui-g-12 ui-md-2 title"> name: </span>
+        <span class="ui-g-12 ui-md-10">{{insurance.getName()}}</span>
+        <span class="ui-g-12 ui-md-2 title"> kind: </span>
+        <span class="ui-g-12 ui-md-10 kind">{{insurance.getKind()}}
+          <img class="image-mini" [src]="insurance.getKindImage()" alt="brand"/>
+        </span>
+        <span class="ui-g-12 ui-md-2 title"> price: </span>
+        <span class="ui-g-12 ui-md-10">{{insurance.getPrice()}}</span>
       </div>
     </div>
   </ng-template>
